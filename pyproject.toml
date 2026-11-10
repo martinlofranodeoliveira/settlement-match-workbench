@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools==84.2.1", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "settlement-match-workbench"
+version = "0.1.0"
+description = "Bounded synthetic settlement matching and explanations over all optimal assignments."
+requires-python = "==3.13.18"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY/**/*"]
+dependencies = []
+
+[project.scripts]
+settlement-match-workbench = "settlement_match_workbench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+settlement_match_workbench = ["data/*.json"]

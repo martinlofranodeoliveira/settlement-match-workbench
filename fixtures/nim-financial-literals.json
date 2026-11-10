@@ -1,0 +1,51 @@
+{
+  "schema": "independent-settlement-financial-literals/1",
+  "scope": "Hand-derived policy examples only. No product candidate builder/parser/SDK was imported or implemented.",
+  "reference_weight": {
+    "currency": {"code":"BRL","minor_digits":2},
+    "policy":{"early_days":1,"late_days":1},
+    "lots":[
+      {"id":"A","currency":"BRL","expected_on":"2000-01-01","gross_minor":10,"fees_minor":0,"refunds_minor":0,"reference":null},
+      {"id":"B","currency":"BRL","expected_on":"2000-01-02","gross_minor":10,"fees_minor":0,"refunds_minor":0,"reference":"R"}
+    ],
+    "credits":[
+      {"id":"X","currency":"BRL","booked_on":"2000-01-02","amount_minor":10,"reference":null},
+      {"id":"Y","currency":"BRL","booked_on":"2000-01-01","amount_minor":10,"reference":"R"}
+    ],
+    "expected":{"m":2,"d":1,"W":3,"edges":{"A:X":4,"A:Y":3,"B:X":3,"B:Y":1},"objective":{"cardinality":2,"cost":5},"forced":["A:X","B:Y"],"globally_excluded":["A:Y","B:X"],"missing_reference_total":1,"date_gap_total":2,"wrong_W_2_would_tie_both_matchings_at_4":true}
+  },
+  "inclusive_leap_date_window": {
+    "expected_on":"2000-03-01","early_days":1,"late_days":2,"net_minor":100,
+    "credits":[{"id":"EARLY","booked_on":"2000-02-29"},{"id":"TOO_EARLY","booked_on":"2000-02-28"},{"id":"LATE","booked_on":"2000-03-03"},{"id":"TOO_LATE","booked_on":"2000-03-04"}],
+    "all_currency":"BRL","all_reference":null,"all_amount_minor":100,
+    "expected":{"W":3,"accepted_gaps":{"EARLY":-1,"LATE":2},"rejected_gaps":{"TOO_EARLY":-2,"TOO_LATE":3},"edges":{"A:EARLY":4,"A:LATE":5},"objective":{"cardinality":1,"cost":4},"forced":["A:EARLY"],"globally_excluded":["A:LATE"]}
+  },
+  "zero_net_and_exact_minor_unit": {
+    "zero_lot":{"gross_minor":100,"fees_minor":70,"refunds_minor":30},
+    "positive_lot":{"gross_minor":101,"fees_minor":70,"refunds_minor":30},
+    "credit_minor":1,"same_currency_and_date":true,"all_reference":null,"early_days":0,"late_days":0,
+    "expected":{"zero_net_minor":0,"zero_status":"NO_CREDIT_DUE","zero_lot_outside_matching":true,"positive_net_minor":1,"positive_edge_cost":1,"no_rounding_or_tolerance":true}
+  },
+  "exact_aggregate_above_js_safe_integer": {
+    "lots":16,"each_gross_minor":1000000000000000,"each_fees_minor":0,"each_refunds_minor":0,
+    "expected_aggregate_minor_string":"16000000000000000",
+    "expected_exceeds_js_max_safe_integer":true,
+    "note":"Catalog currency labels are synthetic policy tags, not ISO validation; aggregates remain decimal strings."
+  },
+  "boundary_expectations_not_product_runs": [
+    {"case":"money maximum","value":"1000000000000000","expected":"ADMIT_MONEY_RANGE"},
+    {"case":"money maximum plus one","value":"1000000000000001","expected":"REJECT_MONEY_RANGE"},
+    {"case":"wire leading zero","value":"01","expected":"REJECT_CANONICAL_DECIMAL"},
+    {"case":"wire exponent","value":"1e3","expected":"REJECT_CANONICAL_DECIMAL"},
+    {"case":"SDK bool or float or Decimal or NumPy scalar","expected":"REJECT_EXACT_INT_TYPE"},
+    {"case":"credit zero","value":"0","expected":"REJECT_POSITIVE_CREDIT"},
+    {"case":"fees plus refunds exceed gross","gross_minor":100,"fees_minor":70,"refunds_minor":31,"expected":"REJECT_NEGATIVE_NET"},
+    {"case":"case-sensitive present refs","left_reference":"Ref","right_reference":"ref","expected":"NO_REFERENCE_EDGE"},
+    {"case":"different declared currencies with equal nominal minor values","left_currency":"BRL","right_currency":"USD","expected":"NO_CURRENCY_EDGE"},
+    {"case":"compact civil date","value":"20000301","expected":"REJECT_CANONICAL_DATE"},
+    {"case":"out-of-domain valid Gregorian leap date","value":"2100-01-01","expected":"REJECT_DATE_RANGE"},
+    {"case":"candidate count129","expected":"INVALID_INPUT_CANDIDATE_LIMIT_NO_TRUNCATION"},
+    {"case":"valid graph at max_work0","expected":"UNKNOWN_BUDGET_WORK_LIMIT_ANALYSIS_NONE_WORK_USED0"},
+    {"case":"invalid graph at max_work0","expected":"INVALID_INPUT_ANALYSIS_NONE_WORK_USED0"}
+  ]
+}

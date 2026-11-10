@@ -1,0 +1,13 @@
+include *
+include .dockerignore .gitignore
+graft src
+graft tests
+graft fixtures
+graft scripts
+graft docs
+graft THIRD_PARTY
+graft .github
+global-exclude __pycache__ *.py[cod]
+prune wheelhouse
+prune dist
+prune build

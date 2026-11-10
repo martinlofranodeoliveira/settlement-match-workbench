@@ -1,0 +1,15 @@
+ARG PREPARED_IMAGE=settlement-match-dependencies:local
+FROM ${PREPARED_IMAGE} AS install
+COPY distributions/rebuilt/ /artifact/
+RUN python -m venv --without-pip /opt/settlement-runtime \
+ && /opt/settlement-build/bin/python -m pip --python /opt/settlement-runtime/bin/python install --disable-pip-version-check --no-index --no-deps /artifact/*.whl
+FROM python@sha256:281d39ff02e3b389401586134ff9e6572954687822a58055ec07a60ded4e0b7f
+COPY --from=install /opt/settlement-runtime /opt/settlement-runtime
+COPY consumer.py module-hashes.json license-hashes.json hand-literal-graphs.compact.json unique-input.json unique-analysis.json /checks/
+COPY package_gate.py quality.py /opt/settlement-checks/
+COPY source-inventory.json /opt/qualification/source-inventory.json
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1
+WORKDIR /tmp
+USER 1000:1000
+ENTRYPOINT []
+CMD ["/opt/settlement-runtime/bin/python", "-I", "-B", "/checks/consumer.py"]

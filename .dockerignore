@@ -1,0 +1,11 @@
+.git
+__pycache__
+**/__pycache__
+*.py[cod]
+**/*.py[cod]
+*.egg-info
+**/*.egg-info
+build
+dist
+.venv
+wheelhouse

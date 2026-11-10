@@ -1,0 +1,2824 @@
+{
+  "schema": "independent-settlement-enumeration/1",
+  "scope": "Private mathematical oracle; not product/native SDK tests. No product implementation/import or model source ingestion.",
+  "python": "3.14.4",
+  "checked_literal_cases": 20,
+  "results": [
+    {
+      "name": "empty_graph",
+      "objective": {
+        "cardinality": 0,
+        "cost": 0
+      },
+      "optimal_family": [
+        []
+      ],
+      "forced": [],
+      "optional": [],
+      "globally_excluded": [],
+      "left": {},
+      "right": {},
+      "edge_probe_objectives": {},
+      "enumerated_partial_matchings": 1,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "isolated_vertices",
+      "objective": {
+        "cardinality": 0,
+        "cost": 0
+      },
+      "optimal_family": [
+        []
+      ],
+      "forced": [],
+      "optional": [],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": false,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": false,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": false,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": false,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {},
+      "enumerated_partial_matchings": 1,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "positive_cost_does_not_defeat_cardinality",
+      "objective": {
+        "cardinality": 1,
+        "cost": 1000000
+      },
+      "optimal_family": [
+        [
+          "A:X"
+        ]
+      ],
+      "forced": [
+        "A:X"
+      ],
+      "optional": [],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 1,
+            "cost": 1000000
+          },
+          "exclude": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 2,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "optional_partner_but_left_always_matched",
+      "objective": {
+        "cardinality": 1,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X"
+        ],
+        [
+          "A:Y"
+        ]
+      ],
+      "forced": [],
+      "optional": [
+        "A:X",
+        "A:Y"
+      ],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X",
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 1,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 1,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 3,
+      "private_optimum_count_not_product_field": 2
+    },
+    {
+      "name": "either_left_can_be_unmatched",
+      "objective": {
+        "cardinality": 1,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X"
+        ],
+        [
+          "B:X"
+        ]
+      ],
+      "forced": [],
+      "optional": [
+        "A:X",
+        "B:X"
+      ],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A",
+            "B"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 1,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 1,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 3,
+      "private_optimum_count_not_product_field": 2
+    },
+    {
+      "name": "cycle_all_optional_no_vertex_free",
+      "objective": {
+        "cardinality": 2,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y"
+        ],
+        [
+          "A:Y",
+          "B:X"
+        ]
+      ],
+      "forced": [],
+      "optional": [
+        "A:X",
+        "A:Y",
+        "B:X",
+        "B:Y"
+      ],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X",
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X",
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A",
+            "B"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A",
+            "B"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 7,
+      "private_optimum_count_not_product_field": 2
+    },
+    {
+      "name": "cardinality_before_cheap_edge",
+      "objective": {
+        "cardinality": 2,
+        "cost": 10
+      },
+      "optimal_family": [
+        [
+          "A:Y",
+          "B:X"
+        ]
+      ],
+      "forced": [
+        "A:Y",
+        "B:X"
+      ],
+      "optional": [],
+      "globally_excluded": [
+        "A:X"
+      ],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Y"
+          ],
+          "forced_partner_id": "Y",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 5
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B"
+          ],
+          "forced_partner_id": "B",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 5
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 1,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 10
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 10
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 10
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 5,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "cost_excludes_other_maximum_matching",
+      "objective": {
+        "cardinality": 2,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y"
+        ]
+      ],
+      "forced": [
+        "A:X",
+        "B:Y"
+      ],
+      "optional": [],
+      "globally_excluded": [
+        "A:Y",
+        "B:X"
+      ],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Y"
+          ],
+          "forced_partner_id": "Y",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B"
+          ],
+          "forced_partner_id": "B",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 2
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 2
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 2
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 2
+          }
+        }
+      },
+      "enumerated_partial_matchings": 7,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "component_ambiguity_is_not_global_ambiguity",
+      "objective": {
+        "cardinality": 2,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y"
+        ]
+      ],
+      "forced": [
+        "A:X",
+        "B:Y"
+      ],
+      "optional": [],
+      "globally_excluded": [
+        "A:Y"
+      ],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Y"
+          ],
+          "forced_partner_id": "Y",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B"
+          ],
+          "forced_partner_id": "B",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 1,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 5,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "alternating_path_three_optima",
+      "objective": {
+        "cardinality": 2,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y"
+        ],
+        [
+          "A:X",
+          "C:Y"
+        ],
+        [
+          "B:X",
+          "C:Y"
+        ]
+      ],
+      "forced": [],
+      "optional": [
+        "A:X",
+        "B:X",
+        "B:Y",
+        "C:Y"
+      ],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "X",
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "C": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A",
+            "B"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B",
+            "C"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "C:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 8,
+      "private_optimum_count_not_product_field": 3
+    },
+    {
+      "name": "different_edge_costs_equal_global_cost",
+      "objective": {
+        "cardinality": 2,
+        "cost": 2
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y"
+        ],
+        [
+          "A:Y",
+          "B:X"
+        ]
+      ],
+      "forced": [],
+      "optional": [
+        "A:X",
+        "A:Y",
+        "B:X",
+        "B:Y"
+      ],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X",
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 1
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X",
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A",
+            "B"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 1
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A",
+            "B"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 2
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 2
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 2
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 2
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 2
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 2
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 2
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 2
+          }
+        }
+      },
+      "enumerated_partial_matchings": 7,
+      "private_optimum_count_not_product_field": 2
+    },
+    {
+      "name": "forced_component_plus_optional_cycle",
+      "objective": {
+        "cardinality": 3,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y",
+          "C:Z"
+        ],
+        [
+          "A:X",
+          "B:Z",
+          "C:Y"
+        ]
+      ],
+      "forced": [
+        "A:X"
+      ],
+      "optional": [
+        "B:Y",
+        "B:Z",
+        "C:Y",
+        "C:Z"
+      ],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Y",
+            "Z"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "C": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Y",
+            "Z"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B",
+            "C"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "Z": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B",
+            "C"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "B:Z": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "C:Y": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "C:Z": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 14,
+      "private_optimum_count_not_product_field": 2
+    },
+    {
+      "name": "zero_cost_candidate_still_globally_excluded",
+      "objective": {
+        "cardinality": 3,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y",
+          "C:Z"
+        ]
+      ],
+      "forced": [
+        "A:X",
+        "B:Y",
+        "C:Z"
+      ],
+      "optional": [],
+      "globally_excluded": [
+        "A:Y",
+        "C:Y"
+      ],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Y"
+          ],
+          "forced_partner_id": "Y",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "C": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Z"
+          ],
+          "forced_partner_id": "Z",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B"
+          ],
+          "forced_partner_id": "B",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "Z": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "C"
+          ],
+          "forced_partner_id": "C",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "C:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "C:Z": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 12,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "no_optimal_incident_edge_vs_no_candidates",
+      "objective": {
+        "cardinality": 2,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:Z",
+          "B:X"
+        ]
+      ],
+      "forced": [
+        "A:Z",
+        "B:X"
+      ],
+      "optional": [],
+      "globally_excluded": [
+        "A:X",
+        "A:Y",
+        "B:Y",
+        "B:Z"
+      ],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Z"
+          ],
+          "forced_partner_id": "Z",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B"
+          ],
+          "forced_partner_id": "B",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 1
+          }
+        },
+        "Y": {
+          "can_be_matched": false,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "Z": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 1
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 1
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 1
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "A:Z": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 1
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 1
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 1
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B:Z": {
+          "force": {
+            "cardinality": 2,
+            "cost": 2
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 13,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "currency_like_components_cartesian_family",
+      "objective": {
+        "cardinality": 3,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y",
+          "C:W"
+        ],
+        [
+          "A:X",
+          "B:Y",
+          "C:Z"
+        ],
+        [
+          "A:Y",
+          "B:X",
+          "C:W"
+        ],
+        [
+          "A:Y",
+          "B:X",
+          "C:Z"
+        ]
+      ],
+      "forced": [],
+      "optional": [
+        "A:X",
+        "A:Y",
+        "B:X",
+        "B:Y",
+        "C:W",
+        "C:Z"
+      ],
+      "globally_excluded": [],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X",
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X",
+            "Y"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "C": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "W",
+            "Z"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "W": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "C"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A",
+            "B"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A",
+            "B"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "Z": {
+          "can_be_matched": true,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [
+            "C"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "C:W": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "C:Z": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 21,
+      "private_optimum_count_not_product_field": 4
+    },
+    {
+      "name": "reference_penalty_weight_plus_one",
+      "objective": {
+        "cardinality": 2,
+        "cost": 5
+      },
+      "optimal_family": [
+        [
+          "A:X",
+          "B:Y"
+        ]
+      ],
+      "forced": [
+        "A:X",
+        "B:Y"
+      ],
+      "optional": [],
+      "globally_excluded": [
+        "A:Y",
+        "B:X"
+      ],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 1
+          }
+        },
+        "B": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "Y"
+          ],
+          "forced_partner_id": "Y",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 3
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 1
+          }
+        },
+        "Y": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "B"
+          ],
+          "forced_partner_id": "B",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 3
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 5
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 6
+          }
+        },
+        "A:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 6
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 5
+          }
+        },
+        "B:X": {
+          "force": {
+            "cardinality": 2,
+            "cost": 6
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 5
+          }
+        },
+        "B:Y": {
+          "force": {
+            "cardinality": 2,
+            "cost": 5
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 6
+          }
+        }
+      },
+      "enumerated_partial_matchings": 7,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "date_window_cost_prefers_nearer_candidate",
+      "objective": {
+        "cardinality": 1,
+        "cost": 4
+      },
+      "optimal_family": [
+        [
+          "A:EARLY"
+        ]
+      ],
+      "forced": [
+        "A:EARLY"
+      ],
+      "optional": [],
+      "globally_excluded": [
+        "A:LATE"
+      ],
+      "left": {
+        "A": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "EARLY"
+          ],
+          "forced_partner_id": "EARLY",
+          "ban_vertex_objective": {
+            "cardinality": 0,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "EARLY": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "A"
+          ],
+          "forced_partner_id": "A",
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 5
+          }
+        },
+        "LATE": {
+          "can_be_matched": false,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 4
+          }
+        },
+        "TOO_EARLY": {
+          "can_be_matched": false,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 4
+          }
+        },
+        "TOO_LATE": {
+          "can_be_matched": false,
+          "can_be_unmatched": true,
+          "possible_partner_ids": [],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 1,
+            "cost": 4
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "A:EARLY": {
+          "force": {
+            "cardinality": 1,
+            "cost": 4
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 5
+          }
+        },
+        "A:LATE": {
+          "force": {
+            "cardinality": 1,
+            "cost": 5
+          },
+          "exclude": {
+            "cardinality": 1,
+            "cost": 4
+          }
+        }
+      },
+      "enumerated_partial_matchings": 3,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "opaque_leading_zero_and_proto_ids",
+      "objective": {
+        "cardinality": 3,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "001:X",
+          "1:x",
+          "__proto__:_"
+        ]
+      ],
+      "forced": [
+        "001:X",
+        "1:x",
+        "__proto__:_"
+      ],
+      "optional": [],
+      "globally_excluded": [],
+      "left": {
+        "001": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "X"
+          ],
+          "forced_partner_id": "X",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "1": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "x"
+          ],
+          "forced_partner_id": "x",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "__proto__": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "_"
+          ],
+          "forced_partner_id": "_",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "X": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "001"
+          ],
+          "forced_partner_id": "001",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "_": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "__proto__"
+          ],
+          "forced_partner_id": "__proto__",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "x": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "1"
+          ],
+          "forced_partner_id": "1",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "001:X": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "1:x": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "__proto__:_": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 8,
+      "private_optimum_count_not_product_field": 1
+    },
+    {
+      "name": "same_ids_on_both_sides_and_internal_names",
+      "objective": {
+        "cardinality": 3,
+        "cost": 0
+      },
+      "optimal_family": [
+        [
+          "S:S",
+          "T:T",
+          "__proto__:__proto__"
+        ],
+        [
+          "S:T",
+          "T:S",
+          "__proto__:__proto__"
+        ]
+      ],
+      "forced": [
+        "__proto__:__proto__"
+      ],
+      "optional": [
+        "S:S",
+        "S:T",
+        "T:S",
+        "T:T"
+      ],
+      "globally_excluded": [],
+      "left": {
+        "S": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "S",
+            "T"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "T": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "S",
+            "T"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "__proto__": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "__proto__"
+          ],
+          "forced_partner_id": "__proto__",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "right": {
+        "S": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "S",
+            "T"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "T": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "S",
+            "T"
+          ],
+          "forced_partner_id": null,
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        },
+        "__proto__": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "__proto__"
+          ],
+          "forced_partner_id": "__proto__",
+          "ban_vertex_objective": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "S:S": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "S:T": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "T:S": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "T:T": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 3,
+            "cost": 0
+          }
+        },
+        "__proto__:__proto__": {
+          "force": {
+            "cardinality": 3,
+            "cost": 0
+          },
+          "exclude": {
+            "cardinality": 2,
+            "cost": 0
+          }
+        }
+      },
+      "enumerated_partial_matchings": 14,
+      "private_optimum_count_not_product_field": 2
+    },
+    {
+      "name": "maximum_vertices_and_objective_exact_int",
+      "objective": {
+        "cardinality": 16,
+        "cost": 16000000
+      },
+      "optimal_family": [
+        [
+          "L00:R00",
+          "L01:R01",
+          "L02:R02",
+          "L03:R03",
+          "L04:R04",
+          "L05:R05",
+          "L06:R06",
+          "L07:R07",
+          "L08:R08",
+          "L09:R09",
+          "L10:R10",
+          "L11:R11",
+          "L12:R12",
+          "L13:R13",
+          "L14:R14",
+          "L15:R15"
+        ]
+      ],
+      "forced": [
+        "L00:R00",
+        "L01:R01",
+        "L02:R02",
+        "L03:R03",
+        "L04:R04",
+        "L05:R05",
+        "L06:R06",
+        "L07:R07",
+        "L08:R08",
+        "L09:R09",
+        "L10:R10",
+        "L11:R11",
+        "L12:R12",
+        "L13:R13",
+        "L14:R14",
+        "L15:R15"
+      ],
+      "optional": [],
+      "globally_excluded": [],
+      "left": {
+        "L00": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R00"
+          ],
+          "forced_partner_id": "R00",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L01": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R01"
+          ],
+          "forced_partner_id": "R01",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L02": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R02"
+          ],
+          "forced_partner_id": "R02",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L03": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R03"
+          ],
+          "forced_partner_id": "R03",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L04": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R04"
+          ],
+          "forced_partner_id": "R04",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L05": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R05"
+          ],
+          "forced_partner_id": "R05",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L06": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R06"
+          ],
+          "forced_partner_id": "R06",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L07": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R07"
+          ],
+          "forced_partner_id": "R07",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L08": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R08"
+          ],
+          "forced_partner_id": "R08",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L09": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R09"
+          ],
+          "forced_partner_id": "R09",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L10": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R10"
+          ],
+          "forced_partner_id": "R10",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L11": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R11"
+          ],
+          "forced_partner_id": "R11",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L12": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R12"
+          ],
+          "forced_partner_id": "R12",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L13": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R13"
+          ],
+          "forced_partner_id": "R13",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L14": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R14"
+          ],
+          "forced_partner_id": "R14",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L15": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "R15"
+          ],
+          "forced_partner_id": "R15",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        }
+      },
+      "right": {
+        "R00": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L00"
+          ],
+          "forced_partner_id": "L00",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R01": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L01"
+          ],
+          "forced_partner_id": "L01",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R02": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L02"
+          ],
+          "forced_partner_id": "L02",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R03": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L03"
+          ],
+          "forced_partner_id": "L03",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R04": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L04"
+          ],
+          "forced_partner_id": "L04",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R05": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L05"
+          ],
+          "forced_partner_id": "L05",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R06": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L06"
+          ],
+          "forced_partner_id": "L06",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R07": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L07"
+          ],
+          "forced_partner_id": "L07",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R08": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L08"
+          ],
+          "forced_partner_id": "L08",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R09": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L09"
+          ],
+          "forced_partner_id": "L09",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R10": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L10"
+          ],
+          "forced_partner_id": "L10",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R11": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L11"
+          ],
+          "forced_partner_id": "L11",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R12": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L12"
+          ],
+          "forced_partner_id": "L12",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R13": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L13"
+          ],
+          "forced_partner_id": "L13",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R14": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L14"
+          ],
+          "forced_partner_id": "L14",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "R15": {
+          "can_be_matched": true,
+          "can_be_unmatched": false,
+          "possible_partner_ids": [
+            "L15"
+          ],
+          "forced_partner_id": "L15",
+          "ban_vertex_objective": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        }
+      },
+      "edge_probe_objectives": {
+        "L00:R00": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L01:R01": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L02:R02": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L03:R03": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L04:R04": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L05:R05": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L06:R06": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L07:R07": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L08:R08": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L09:R09": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L10:R10": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L11:R11": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L12:R12": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L13:R13": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L14:R14": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        },
+        "L15:R15": {
+          "force": {
+            "cardinality": 16,
+            "cost": 16000000
+          },
+          "exclude": {
+            "cardinality": 15,
+            "cost": 15000000
+          }
+        }
+      },
+      "enumerated_partial_matchings": 65536,
+      "private_optimum_count_not_product_field": 1
+    }
+  ],
+  "dense_private_stress": {
+    "partial_matchings": 13327,
+    "optimal_matchings": 720,
+    "objective": {
+      "cardinality": 6,
+      "cost": 0
+    },
+    "all36_edges_optional": true,
+    "all12_vertices_always_matched": true
+  }
+}

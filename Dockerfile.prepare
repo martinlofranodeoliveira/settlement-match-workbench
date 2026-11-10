@@ -1,0 +1,10 @@
+FROM python@sha256:281d39ff02e3b389401586134ff9e6572954687822a58055ec07a60ded4e0b7f
+COPY qualified-build-wheels.json /prep/qualified-build-wheels.json
+COPY scripts/fetch_build_wheels.py /prep/scripts/fetch_build_wheels.py
+COPY requirements-build.lock /prep/requirements-build.lock
+RUN python -I -B /prep/scripts/fetch_build_wheels.py \
+ && python -m venv /opt/settlement-build \
+ && /opt/settlement-build/bin/python -m pip install --disable-pip-version-check --no-index --no-deps --require-hashes --find-links=/prep/wheelhouse -r /prep/requirements-build.lock \
+ && /opt/settlement-build/bin/python -m pip check
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+ENTRYPOINT []

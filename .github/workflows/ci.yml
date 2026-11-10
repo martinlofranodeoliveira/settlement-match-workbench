@@ -1,0 +1,23 @@
+name: native-python-package
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  native-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Prepare pinned CPython and hash-locked build wheels
+        timeout-minutes: 5
+        run: sh scripts/check.sh prepare
+      - name: Build genuine artifacts and test installed SDK and CLI offline
+        timeout-minutes: 7
+        run: sh scripts/check.sh test
+      - name: Run the installed synthetic asserting demo under optimization
+        timeout-minutes: 1
+        run: sh scripts/check.sh demo

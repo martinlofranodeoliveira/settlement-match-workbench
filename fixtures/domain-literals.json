@@ -1,0 +1,197 @@
+{
+  "schema": "pre-source-domain-literals-v1",
+  "authorship": "Codex support; literals before product; not actual bank data or provider evidence",
+  "cases": [
+    {
+      "name": "net_fee_refund_exact",
+      "gross_minor": "10000",
+      "fees_minor": "300",
+      "refunds_minor": "700",
+      "expected_net_minor": "9000"
+    },
+    {
+      "name": "zero_net_not_credit_due",
+      "gross_minor": "100",
+      "fees_minor": "30",
+      "refunds_minor": "70",
+      "expected_net_minor": "0",
+      "expected_state": "NO_CREDIT_DUE"
+    },
+    {
+      "name": "all_zero_lot",
+      "gross_minor": "0",
+      "fees_minor": "0",
+      "refunds_minor": "0",
+      "expected_net_minor": "0",
+      "expected_state": "NO_CREDIT_DUE"
+    },
+    {
+      "name": "maximum_exact",
+      "gross_minor": "1000000000000000",
+      "fees_minor": "1",
+      "refunds_minor": "2",
+      "expected_net_minor": "999999999999997"
+    },
+    {
+      "name": "deductions_exceed_gross",
+      "gross_minor": "100",
+      "fees_minor": "60",
+      "refunds_minor": "41",
+      "expected_invalid": "MONEY"
+    },
+    {
+      "name": "early_boundary",
+      "expected_on": "2026-11-10",
+      "booked_on": "2026-11-08",
+      "early_days": 2,
+      "late_days": 1,
+      "expected_candidate_date": true,
+      "expected_abs_day_gap": 2
+    },
+    {
+      "name": "late_boundary",
+      "expected_on": "2026-11-10",
+      "booked_on": "2026-11-11",
+      "early_days": 2,
+      "late_days": 1,
+      "expected_candidate_date": true,
+      "expected_abs_day_gap": 1
+    },
+    {
+      "name": "too_early",
+      "expected_on": "2026-11-10",
+      "booked_on": "2026-11-07",
+      "early_days": 2,
+      "late_days": 1,
+      "expected_candidate_date": false
+    },
+    {
+      "name": "too_late",
+      "expected_on": "2026-11-10",
+      "booked_on": "2026-11-12",
+      "early_days": 2,
+      "late_days": 1,
+      "expected_candidate_date": false
+    },
+    {
+      "name": "leap_valid",
+      "date": "2024-02-29",
+      "expected_valid": true
+    },
+    {
+      "name": "leap_invalid",
+      "date": "2026-02-29",
+      "expected_valid": false
+    },
+    {
+      "name": "date_compact_invalid",
+      "date": "20261110",
+      "expected_valid": false
+    },
+    {
+      "name": "date_week_invalid",
+      "date": "2026-W46-2",
+      "expected_valid": false
+    },
+    {
+      "name": "date_range_invalid",
+      "date": "1999-12-31",
+      "expected_valid": false
+    },
+    {
+      "name": "same_ref",
+      "lot_reference": "R-001",
+      "credit_reference": "R-001",
+      "expected_reference_candidate": true,
+      "expected_missing_penalty": 0
+    },
+    {
+      "name": "both_missing",
+      "lot_reference": null,
+      "credit_reference": null,
+      "expected_reference_candidate": true,
+      "expected_missing_penalty": 1
+    },
+    {
+      "name": "one_missing",
+      "lot_reference": "R-001",
+      "credit_reference": null,
+      "expected_reference_candidate": true,
+      "expected_missing_penalty": 1
+    },
+    {
+      "name": "case_sensitive_ref",
+      "lot_reference": "R-001",
+      "credit_reference": "r-001",
+      "expected_reference_candidate": false
+    },
+    {
+      "name": "cross_currency_rejected",
+      "lot_currency": "BRL",
+      "credit_currency": "USD",
+      "expected_currency_candidate": false
+    },
+    {
+      "name": "wrong_amount_rejected",
+      "net_minor": "9000",
+      "amount_minor": "9001",
+      "expected_amount_candidate": false
+    },
+    {
+      "name": "inclusive_missing_ref_cost",
+      "eligible_lots": 1,
+      "credits": 1,
+      "early_days": 0,
+      "late_days": 1,
+      "missing_penalty": 1,
+      "abs_day_gap": 1,
+      "expected_W": 2,
+      "expected_cost": 3
+    },
+    {
+      "name": "reference_dominates_date",
+      "eligible_lots": 1,
+      "credits": 2,
+      "early_days": 0,
+      "late_days": 2,
+      "known_ref_gap": 2,
+      "missing_ref_gap": 0,
+      "expected_W": 3,
+      "expected_known_cost": 2,
+      "expected_missing_cost": 3
+    },
+    {
+      "name": "scalarization_maximum",
+      "eligible_lots": 16,
+      "credits": 16,
+      "early_days": 31,
+      "late_days": 31,
+      "missing_penalty": 1,
+      "abs_day_gap": 31,
+      "expected_W": 497,
+      "expected_cost": 528
+    },
+    {
+      "name": "aggregate_above_js_safe_integer",
+      "count": 16,
+      "per_record_minor": "1000000000000000",
+      "expected_sum_minor": "16000000000000000"
+    },
+    {
+      "name": "ids_opaque_numeric",
+      "left_ids": [
+        "001",
+        "1"
+      ],
+      "expected_distinct": true
+    },
+    {
+      "name": "no_cross_currency_sum",
+      "per_currency_minor": {
+        "BRL": "9000",
+        "USD": "9000"
+      },
+      "expected_not_one_money_total": true
+    }
+  ]
+}
